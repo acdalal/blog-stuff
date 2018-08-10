@@ -110,15 +110,15 @@ class Scenario():
             readable += '-' + str(pedestrian) + '\n'
         readable += '\n'
 
-        if self.legalCrossing:
-            readable += 'Crossing is legal\n'
-        else:
-            readable += 'Crossing is illegal\n'
-
-        if self.pedsInLane:
-            readable += 'Pedestrians are in your lane.'
-        else:
-            readable += 'Pedestrians are NOT in your lane.'
+#         if self.legalCrossing:
+#             readable += 'Crossing is legal\n'
+#         else:
+#             readable += 'Crossing is illegal\n'
+# 
+#         if self.pedsInLane:
+#             readable += 'Pedestrians are in your lane.'
+#         else:
+#             readable += 'Pedestrians are NOT in your lane.'
 
         return readable
 
@@ -147,12 +147,15 @@ class Person():
     Attributes:
         charType (string): 'human', 'you', 'cat', 'dog'
         age (string): humans can be a 'baby', 'child', or 'adult'
-        profession (string): adults are assigned a profession: 'doctor', 'CEO',
-            'criminal', 'homeless', 'unemployed', 'unknown'
-        gender (string): 'male' or 'female' TODO: add more diverse options
+        profession (string): adults are assigned a profession: 'doctor', 'CEO', 
+            'unemployed', 'unknown'
+        gender (string): 'male', 'female', 'nonbinary'
         bodyType (string): adults are classified as 'average', 'athletic',
             or 'overweight'
         pregnant (bool): adult women may also be pregnant. True if pregnant.
+        hasCriminalPast (bool): True if has a criminal history. Can only be true 
+            if the person is an adult.
+        isHomeless (bool): True if person is homeless.
 
     """
     # The following variables not only contain the possibilities of different
@@ -167,16 +170,20 @@ class Person():
     # Possible ages of humans
     AGE_TYPES = ["baby", "child", "adult", "adult", "adult", "elderly"]
     # Possible professions of adults
-    PROF_TYPES = ["doctor", "CEO", "criminal", "homeless", "unemployed", "unknown", "unknown", "unknown"]
+    PROF_TYPES = ["doctor", "CEO", "unemployed", "unknown", "unknown", "unknown"]
     # Possible genders of humans
-    GENDER_TYPES = ["male", "female"]
+    GENDER_TYPES = ["male", "female", "male", "female", "male", "female", "nonbinary"]
     # Select whether a female is pregnant (currently 25% chance)
     PREGNANT_CHANCE = [True, False, False, False]
     # Select the bodytype of each non-child.
     BODYWEIGHT_CHANCE = ["overweight", "athletic", "average", "average"]
+    # Select whether an adult has a criminal (felony) history
+    CRIMINAL_CHANCE = [True, False, False, False, False, False, False, False]
+    # Select whether a person is homeless
+    HOMELESS_CHANCE = [False, False, False, True, False, False, False, False] 
 
     def __init__(self, charType=None, age=None, profession=None,
-            gender=None, bodyType=None, pregnant=None):
+            gender=None, bodyType=None, pregnant=None, criminal=None, homeless=None):
         ''' Create a person by randomly selecting their attributes
 
         All of the parameters in this method are OPTIONAL. This means that by
@@ -197,6 +204,8 @@ class Person():
         self.gender = gender
         self.bodyType = bodyType
         self.pregnant = pregnant
+        self.criminal = criminal
+        self.homeless = homeless
 
         # set type of character (human or animal?)
         if charType is None:
@@ -211,6 +220,8 @@ class Person():
                 self.age = random.choice(self.AGE_TYPES)
             if self.gender is None:
                 self.gender = random.choice(self.GENDER_TYPES)
+            if self.homeless is None:
+                self.homeless = random.choice(self.HOMELESS_CHANCE)
 
             # Set adult characteristics.
             if self.age == "adult":
@@ -221,6 +232,8 @@ class Person():
                         self.pregnant = random.choice(self.PREGNANT_CHANCE)
                 if self.profession is None:
                     self.profession = random.choice(self.PROF_TYPES)
+                if self.criminal is None:
+                    self.criminal = random.choice(self.CRIMINAL_CHANCE)
 
     def __repr__(self):
         """ Method that helps python understand how to print a Person
@@ -243,6 +256,10 @@ class Person():
                 readable += ' job:' + self.profession
             if self.pregnant:
                 readable += ', pregnant'
+            if self.criminal:
+                readable += ', has criminal history'
+            if self.homeless:
+                readable += ', homeless'
         else:
             readable = self.charType
         return readable
@@ -260,4 +277,5 @@ class Person():
                 attr_dict['pregnant'] = True
             else:
                 attr_dict['pregnant'] = False
+
         return Person(**attr_dict)
