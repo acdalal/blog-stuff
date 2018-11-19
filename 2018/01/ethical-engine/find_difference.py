@@ -17,7 +17,8 @@ def find_difference(manual_file):
 
 
 def main():
-    manual_file = 'manual_decision.20180810102357.log'
+    # *** NOTE: Replace this with the name of your manual decision log file ***
+    manual_file = 'manual_decision.20181031130021.log'
     find_difference(manual_file)
 
 
