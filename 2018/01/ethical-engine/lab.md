@@ -2,9 +2,7 @@
 
 Content warning: you will be making imaginary life-or-death choices in this lab.
 
-One of the most disruptive technologies currently under development is the self-driving car. [Tesla just announced their electric trucks](https://www.theverge.com/2017/11/16/16667366/tesla-semi-truck-announced-price-release-date-electric-self-driving) - likely to have similar self-driving capabilities as their other vehicles - which raises the question of [what will happen to the 3.5 million truckers in the US](https://www.theguardian.com/technology/2016/jun/17/self-driving-trucks-impact-on-drivers-jobs-us). Google's sister company Waymo is [set to launch a commercial driverless taxi service in Phoenix](https://arstechnica.com/cars/2017/10/report-waymo-aiming-to-launch-commercial-driverless-service-this-year/), and Uber has made it their explicit goal to [convert their entire fleet to driverless cars](https://www.washingtonpost.com/business/economy/uber-signs-deal-to-buy-24000-autonomous-vehicles-from-volvo/2017/11/20/d6038f28-ce2a-11e7-81bc-c55a220c8cbe_story.html); as you might imagine, [taxi companies are not happy about this development](http://money.cnn.com/2017/01/10/technology/new-york-self-driving-cars-ridesharing/index.html). Most major car manufacturers including Ford and Mercedes-Benz are also working on self-driving cars, with many already including lane guidance and automatic parking in their commercial models.
-
-*TODO: update article links*
+One of the most disruptive technologies currently under development is the self-driving car. [Tesla announced their electric trucks](https://www.theverge.com/2017/11/16/16667366/tesla-semi-truck-announced-price-release-date-electric-self-driving) - likely to have similar self-driving capabilities as their other vehicles - which raises the question of [what will happen to the 3.5 million truckers in the US](https://www.theguardian.com/technology/2016/jun/17/self-driving-trucks-impact-on-drivers-jobs-us). Google's sister company Waymo is [set to launch a commercial driverless taxi service in Phoenix](https://arstechnica.com/cars/2017/10/report-waymo-aiming-to-launch-commercial-driverless-service-this-year/), and Uber has made it their explicit goal to [convert their entire fleet to driverless cars](https://www.washingtonpost.com/business/economy/uber-signs-deal-to-buy-24000-autonomous-vehicles-from-volvo/2017/11/20/d6038f28-ce2a-11e7-81bc-c55a220c8cbe_story.html); as you might imagine, [taxi companies are not happy about this development](http://money.cnn.com/2017/01/10/technology/new-york-self-driving-cars-ridesharing/index.html). Most major car manufacturers including Ford and Mercedes-Benz are also working on self-driving cars, with many already including lane guidance and automatic parking in their commercial models.
 
 Much more immediate than the societal impact, however, are ethical problems about how a self-driving car should behave. This is reminiscent of the "trolley problem" in philosophy, which [Wikipedia](https://en.wikipedia.org/wiki/Trolley_problem) describes thus:
 
@@ -24,28 +22,22 @@ This lab asks you to explore this ethical dilemma. Credit goes to Evan Peck of B
 
 ### Part 1
 
-*TODO: move this to the daily assignment, have students complete before coming to class.*
+From the starter files, run `manual.py`. This file will present you with 60 scenarios, with different passengers and pedestrians, in which you must decide which group to save. As a pair, work through all 60 scenarios and decide who you would save in each. Take as long as necessary for each one, and aim to answer as truthfully as possible. Your responses will be saved into a timestamped log file.
 
-From the starter files, run `manual.py`. This file will present you with 60 scenarios, with different passengers and pedestrians, in which you must decide which group to save. As a group, work through all 60 scenarios and decide who you would save in each. Take as long as necessary for each one, and aim to answer as truthfully as possible. Your responses will be saved into a timestamped log file.
+Once you have gone through all 60 scenarios, you will be given a summary of who you have saved. Examine this summary. Talk briefly about the decision criteria you used.
 
-Once you have gone through 60 scenarios, you will be given a summary of who you have saved. Upload this summary to Moodle (*upload the manual log file*). Bring a copy of this summary to class as well.
-
-*This next part is done in class, at the start. Might want to put this on a slide as the starting "thought question" of the day.*
-
-Start by comparing your manual statistics summary with your partner's. What similarities are there? What are the key differences? Talk briefly about the decision criteria you used, and again, note similarities and differences.
-
-<div style="page-break-after:always"></div>
+Compare your statistics with a neighboring pair's results. What similarities and differences do you note? How did your decision criteria differ?
 
 ### Part 2
 
 For this part of the lab, imagine you and your partner are the programmers writing the decision process for a self-driving car. In `automatic.py`, there is a function called `automatic_decision`. Your job is to come to a consensus with your partner on a decision process you are both comfortable with, and then replicate this decision process as much as possible in this function.
 
-The `automatic_decision` function takes a `Scenario` instance, and must return which group to save - either `"passengers"`, or `"pedestrians"`. `Scenario` objects have the following member variables:
+The `automatic_decision` function takes a `Scenario` instance, and must return which group to save - either `"passengers"`, or `"pedestrians"`. `Scenario` objects have the following instance variables:
 
 * `passengers`, a list of Person objects that describe the passengers in the car
 * `pedestrians`, a list of Person objects that describe the pedestrians
 
-`Person` objects have the following member variables:
+`Person` objects have the following instance variables:
 
 * `charType`, which describes whether the `Person` is `"human"`, `"cat"`, or `"dog"`
 * `age`, which describes whether the human is `"baby"`, `"child"`, `"adult"`, or `"elderly"`
@@ -74,7 +66,7 @@ With your partner, answer the following questions:
     * What attributes went into your decisions? Does that attribute positively or negatively affect that person’s survival? Why did you consider those attributes?
     * Is the use of those attributes to make those decision "fair" or "ethical" or "moral"? Why/Why not?
 
-2. Run `find_difference.py`, which will run your function on the same 60 scenarios you manually worked through, and show you the scenarios where your automatic and manual decisions differed, as well as the statistics for your automatic decisions **TODO change code to calculate stats on automatic decisions**. Answer the following questions:
+2. Run `find_difference.py`, which will run your function on the same 60 scenarios you manually worked through, and show you the scenarios where your automatic and manual decisions differed. Answer the following questions:
     * How accurately did your automatic model match up with your manual decisions?
     * For each scenario where your manual and automatic decisions disagreed, explain why. What were you considering when you made the decision manually? What did the automatic decision not take into account, or what did it take into account that it shouldn’t?
 
@@ -92,8 +84,10 @@ For every attribute in Category 2, explain why the statistics do not reflect you
 
 5. Based on this exercise, what are some challenges to building (and programming) ethical self-driving cars?
 
-*NOTE for execution: Have students rewrite code/decision engine for HW assignment, based on their discussions.*
-
 ### Submission
 
-*automatic.py, log files, text file w/ answers to these questions. Done as HW.*
+Please turn in the following files:
+
+* `automatic.py`, with `automatic_decision()` implemented.
+* Your manual and automatic log files
+* A **plain text** file with the answers to the questions above.
