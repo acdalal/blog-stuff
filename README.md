@@ -1,6 +1,3 @@
-# Blog Code
+# The Ethical Engine
 
-Various files, code and otherwise, for my blogs:
-
-* [justinnhli.com](https://justinnhli.com/writings.html)
-* [How to Start a CS Department](https://howtostartacsdept.wordpress.com/)
+The writeup for the assignment from which this assignment is based can be found at [https://howtostartacsdept.wordpress.com/2018/01/13/step-86-write-up-the-ethical-engine-lab/]().
