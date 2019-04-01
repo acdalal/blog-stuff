@@ -89,6 +89,19 @@ class Scenario():
         else:
             self.pedsInLane = random.choice(self.PEDS_IN_LANE_CHANCE)
 
+    def getNumPedestrians(self):
+        return self.numPedestrians
+
+    def getNumPassengers(self):
+        return self.numPassengers
+
+    def getPedestrians(self):
+        return self.pedestrians
+
+    def getPassengers(self):
+        return self.passengers
+
+
     def __repr__(self):
         """ Method that helps python understand how to print a Scenario
 
@@ -234,6 +247,30 @@ class Person():
                     self.profession = random.choice(self.PROF_TYPES)
                 if self.criminal is None:
                     self.criminal = random.choice(self.CRIMINAL_CHANCE)
+
+    def getCharType(self):
+        return self.charType
+
+    def getProfession(self):
+        return self.profession
+
+    def getAge(self):
+        return self.age
+
+    def getGender(self):
+        return self.gender
+
+    def getBodyType(self):
+        return self.bodyType
+
+    def isPregnant(self):
+        return self.pregnant
+
+    def isCriminal(self):
+        return self.criminal
+
+    def isHomeless(self):
+        return self.homeless
 
     def __repr__(self):
         """ Method that helps python understand how to print a Person
