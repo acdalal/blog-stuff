@@ -26,7 +26,7 @@ Imagine that you and some passengers are in a self-driving car, when several peo
 *   swerve, potentially hitting storefronts and killing you and your passengers? Or,
 *   keep going, potentially hitting and killing the pedestrians?
 
-This lab (both part 1, today, and part 2, Friday) asks you to explore this ethical dilemma. Credit goes to Evan Peck of Bucknell University and Justin Li of Occidental College for developing/refining this assignment.
+This lab (both part 1, today, and part 2, next class day) asks you to explore this ethical dilemma. Credit goes to Evan Peck of Bucknell University and Justin Li of Occidental College for developing/refining this assignment.
 
 ### Step 1
 
@@ -40,30 +40,32 @@ Compare your statistics with a neighboring pair's results. What similarities and
 
 For this part of the lab, imagine you and your partner are the programmers writing the decision process for a self-driving car. In `automatic.py`, there is a function called `automatic_decision`. Your job is to come to a consensus with your partner on a decision process you are both comfortable with, and then replicate this decision process as much as possible in this function.
 
-The `automatic_decision` function takes a `Scenario` instance, and must return which group to save - either `"passengers"`, or `"pedestrians"`. `Scenario` objects have the following instance variables:
+The `automatic_decision` function takes a `Scenario` instance, and must return which group to save - either `"passengers"`, or `"pedestrians"`. 
 
-*   `passengers`, a list of Person objects that describe the passengers in the car
-*   `pedestrians`, a list of Person objects that describe the pedestrians
+`Scenario` objects have the following methods:
 
-`Person` objects have the following instance variables:
+*   `getPassengers()`, which returns a list of Person objects that describe the passengers in the car
+*   `getPedestrians()`, which returns a list of Person objects that describe the pedestrians
 
-*   `charType`, which describes whether the `Person` is `"human"`, `"cat"`, or `"dog"`
-*   `age`, which describes whether the human is `"baby"`, `"child"`, `"adult"`, or `"elderly"`
-*   `gender`, which describes whether the human is `"male"`, `"female"`, or `"nonbinary"`
-*   `bodyType`, which describes whether the human adult is `"overweight"`, `"athletic"`, or `"average"`
-*   `profession`, which describes whether the human adult is `"doctor"`, `"CEO"`, `"unemployed"`, or `"unknown"`
-*   `pregnant`, which is `True` if the human adult female is pregnant, and is `False` otherwise
-*   `criminal`, which is `True` if the human adult has a criminal (felony charge) history, and is `False` otherwise
-*   `homeless`, which is `True` if the human is currently homeless and is `False` otherwise
 
-All values will be set to `None` if they do not apply (ie. `pregnant` will be `None` for anyone who is not a human adult female).
+`Person` objects have the following methods:
+
+*   `getCharType()`, which returns whether the `Person` is `"human"`, `"cat"`, or `"dog"`
+*   `getAge()`, which returns whether the human is `"baby"`, `"child"`, `"adult"`, or `"elderly"`
+*   `getGender()`, which returns whether the human is `"male"`, `"female"`, or `"nonbinary"`
+*   `getBodyType()`, which returns whether the human adult is `"overweight"`, `"athletic"`, or `"average"`
+*   `getProfession()`, which returns whether the human adult is `"doctor"`, `"CEO"`, `"unemployed"`, or `"unknown"`
+*   `isPregnant()`, which returns `True` if the human adult female is pregnant, and `False` otherwise
+*   `isCriminal()`, which returns `True` if the human adult has a criminal (felony charge) history, and `False` otherwise
+*   `isHomeless()`, which returns `True` if the human is currently homeless and `False` otherwise
+
 
 **Before you begin coding**, sketch out the algorithm for your decision process **on paper**. What criteria are you using? How much weight are you giving to each criteria? In the case of "ties", what is the tiebreaker? **Please do not use your computers for this part of the lab.**
 
-Once you've finished designing your decision algorithm, and received approval from either Nathaniel or me, go ahead and implement it in Python (in the `automatic_decision` function). Run and test your implementation.
+Once you've finished designing your decision algorithm, and received approval from the prefect or me, go ahead and implement it in Python (in the `automatic_decision` function). If you're stuck or want to see an example, I've written a really simple decision algorithm in the file `sample.py`. Run and test your implementation.  
 
 **Do not** refer back to the statistics from your manual decisions as you write this function. Note that your function _must_ return either `"passengers"` or `"pedestrians"` for any given scenario. Failure to do so will result in an error. Running `automatic.py` will apply your function to 60 random scenarios.
 
 ### What to turn in today
 
-Hand in your log file of manual results on Moodle. Make sure you save your work, as you'll be continuing to use and modify your code in our next class meeting.
+Hand in your **log file of manual results*** on Moodle. Make sure you save your work, as you'll be continuing to use and modify your code in our next class meeting.
