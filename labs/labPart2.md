@@ -34,11 +34,13 @@ With your partner, answer the following questions:
     *   **Category 1:** Deliberately used in decision, and the survival rates reflect what you intended
     *   **Category 2:** Deliberately used in decision, but the survival rates do not reflect what you intended
     *   **Category 3:** Not explicitly used in decision, but the survival rates are not equal between groups
-    *   **Category 4:** Not explicitly used in decision, and the survival rates are equal between groups.For every attribute in Category 3, explain why the survival rates are not equal despite not being used in your decision process.
+    *   **Category 4:** Not explicitly used in decision, and the survival rates are equal between groups.
+    
+    For every attribute in Category 3, explain why the survival rates are not equal despite not being used in your decision process.
 4.  Working with another pair, explain to each other how you made your automatic decisions and compare your statistics from the previous question.
     *   How do the decision processes differ? What was the reasoning behind each difference?
     *   Did that lead to different statistics, in either ranking or in survival rate?
-    *   Which decision process would you prefer to be in a self-driving car? Why?
+    *   Which decision process would you prefer to be implemented in a self-driving car? Why?
 5.  Based on this exercise, what are some challenges to building (and programming) ethical self-driving cars?
 
 ### Submission
@@ -46,7 +48,7 @@ With your partner, answer the following questions:
 Please turn in the following files:
 
 *   `automatic.py`, with `automatic_decision()` implemented.
-*   Your manual and automatic log files
+*   Your manual and automatic **log files**.
 *   A **plain text** file with the answers to the questions above.
 
 This lab counts as 10 points towards your Projects grade for the course.
