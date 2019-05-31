@@ -10,8 +10,8 @@ def manual_decision(scenario):
     print(scenario)
     print()
     response = ' '
-    while response.lower() not in ['a', 'l']:
-        response = input("Enter 'a' to save the passengers, or 'l' to save the pedestrians: ")
+    while response.lower() not in ['a', 'b']:
+        response = input("Enter 'a' to save the passengers, or 'b' to save the pedestrians: ")
     if response.lower() == 'a':
         return 'passengers'
     else:
